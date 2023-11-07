@@ -20,7 +20,7 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 // @ts-ignore
-import img from "../../images/circle-ziad.png"
+import img from "../../images/circle-ziad.png";
 import { styled, useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import { Avatar, Typography } from "@mui/material";
@@ -79,7 +79,7 @@ const Drawer = styled(MuiDrawer, {
 
 const SideBar = ({ open, handleDrawerClose }) => {
   const Array1 = [
-    { text: "Dashboard", icon: <HomeOutlinedIcon />, path: "/" },
+    { text: "Dashboard", icon: <HomeOutlinedIcon />, path: "/dashboard" },
     { text: "Manage Team", icon: <PeopleOutlinedIcon />, path: "/team" },
     {
       text: "Contacts Information",
@@ -140,7 +140,7 @@ const SideBar = ({ open, handleDrawerClose }) => {
         align="center"
         sx={{ fontSize: open ? 17 : 0, transition: "0.25s" }}
       >
-      Ziad Ahmed
+        Ziad Ahmed
       </Typography>
       <Typography
         align="center"
@@ -156,7 +156,7 @@ const SideBar = ({ open, handleDrawerClose }) => {
       <List>
         {Array1.map((item) => (
           <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
-            <Link className="Link" to={item.path}>
+            <Link className="Link" to={`${item.path}`}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -186,27 +186,29 @@ const SideBar = ({ open, handleDrawerClose }) => {
       <List>
         {Array2.map((item) => (
           <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+            <Link className="Link" to={`${item.path}`}>
+              <ListItemButton
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.text}
-                sx={{ opacity: open ? 1 : 0 }}
-              />
-            </ListItemButton>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.text}
+                  sx={{ opacity: open ? 1 : 0 }}
+                />
+              </ListItemButton>
+            </Link>{" "}
           </ListItem>
         ))}
       </List>
@@ -214,27 +216,30 @@ const SideBar = ({ open, handleDrawerClose }) => {
       <List>
         {Array3.map((item) => (
           <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+            <Link className="Link" to={`${item.path}`}>
+              {" "}
+              <ListItemButton
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.text}
-                sx={{ opacity: open ? 1 : 0 }}
-              />
-            </ListItemButton>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.text}
+                  sx={{ opacity: open ? 1 : 0 }}
+                />
+              </ListItemButton>
+            </Link>{" "}
           </ListItem>
         ))}
       </List>

@@ -51,7 +51,7 @@ export default function Homepage() {
         <DrawerHeader />
         
          
-ZIAD AHMED
+<Outlet/>
        
        
       </Box>
