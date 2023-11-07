@@ -1,0 +1,15 @@
+
+
+
+
+
+
+/* TopBar */
+@media only screen and (max-width: 600px) {
+   .text-top-bar{
+    display: block !important;
+   }
+   .search-top-bar{
+    display: none !important;
+   }
+  }
