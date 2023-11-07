@@ -8,10 +8,22 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
+import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
+import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
+import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
+import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+// @ts-ignore
+import img from "../../images/circle-ziad.png"
 import { styled, useTheme } from "@mui/material/styles";
+import { Link } from "react-router-dom";
+import { Avatar, Typography } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -66,6 +78,40 @@ const Drawer = styled(MuiDrawer, {
 );
 
 const SideBar = ({ open, handleDrawerClose }) => {
+  const Array1 = [
+    { text: "Dashboard", icon: <HomeOutlinedIcon />, path: "/" },
+    { text: "Manage Team", icon: <PeopleOutlinedIcon />, path: "/team" },
+    {
+      text: "Contacts Information",
+      icon: <ContactsOutlinedIcon />,
+      path: "/contacts",
+    },
+    {
+      text: "Invoices Balances",
+      icon: <ReceiptOutlinedIcon />,
+      path: "/invoices",
+    },
+  ];
+  const Array2 = [
+    { text: "Profile Form", icon: <PersonOutlinedIcon />, path: "/form" },
+    {
+      text: "Calendar",
+      icon: <CalendarTodayOutlinedIcon />,
+      path: "/calendar",
+    },
+    {
+      text: "FAQ Page",
+      icon: <HelpOutlineOutlinedIcon />,
+      path: "/faq",
+    },
+  ];
+
+  const Array3 = [
+    { text: "Bar Chart", icon: <BarChartOutlinedIcon />, path: "/bar" },
+    { text: "Pie Chart", icon: <PieChartOutlineOutlinedIcon />, path: "/pie" },
+    { text: "Line Chart", icon: <TimelineOutlinedIcon />, path: "/line" },
+    { text: "Geography Chart", icon: <MapOutlinedIcon />, path: "/geography" },
+  ];
   const theme = useTheme();
   return (
     <Drawer variant="permanent" open={open}>
@@ -78,10 +124,68 @@ const SideBar = ({ open, handleDrawerClose }) => {
           )}
         </IconButton>
       </DrawerHeader>
+      <Avatar
+        sx={{
+          mx: "auto",
+          width: open ? 88 : 44,
+          height: open ? 88 : 44,
+          my: 1,
+          border: "2px solid grey",
+          transition: "0.25s",
+        }}
+        alt="Remy Sharp"
+        src={img}
+      />
+      <Typography
+        align="center"
+        sx={{ fontSize: open ? 17 : 0, transition: "0.25s" }}
+      >
+      Ziad Ahmed
+      </Typography>
+      <Typography
+        align="center"
+        sx={{
+          fontSize: open ? 15 : 0,
+          transition: "0.25s",
+          color: theme.palette.info.main,
+        }}
+      >
+        Admin
+      </Typography>
       <Divider />
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: "block" }}>
+        {Array1.map((item) => (
+          <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
+            <Link className="Link" to={item.path}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.text}
+                  sx={{ opacity: open ? 1 : 0 }}
+                />
+              </ListItemButton>
+            </Link>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {Array2.map((item) => (
+          <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -96,17 +200,20 @@ const SideBar = ({ open, handleDrawerClose }) => {
                   justifyContent: "center",
                 }}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {item.icon}
               </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText
+                primary={item.text}
+                sx={{ opacity: open ? 1 : 0 }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: "block" }}>
+        {Array3.map((item) => (
+          <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -121,9 +228,12 @@ const SideBar = ({ open, handleDrawerClose }) => {
                   justifyContent: "center",
                 }}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {item.icon}
               </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText
+                primary={item.text}
+                sx={{ opacity: open ? 1 : 0 }}
+              />
             </ListItemButton>
           </ListItem>
         ))}

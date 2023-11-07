@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 
 import TopBar from '../TopBar/TopBar';
 import SideBar from '../SideBar/SideBar';
+import {Outlet}  from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -48,11 +49,15 @@ export default function Homepage() {
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum 
-        </Typography>
+        
+         
+ZIAD AHMED
+       
        
       </Box>
+   
+
+
     </Box>
   );
 }

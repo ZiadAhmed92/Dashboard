@@ -3,6 +3,8 @@ import "./App.css";
 import HomePage from "./Components/HomePage/HomePage";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
+import Team from "./Pages/Team/Team";
+import Contacts from "./Pages/Contacts/Contacts";
 
 
 
@@ -21,6 +23,8 @@ function App() {
 
         <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/contacts" element={<Contacts />} />
       </Routes>
       </ThemeProvider>
     </ColorModeContext.Provider>
