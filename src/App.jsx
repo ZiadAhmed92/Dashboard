@@ -12,7 +12,7 @@ import Calendar from "./Pages/Calendar/Calendar";
 import FAQ from "./Pages/FAQ/FAQ";
 import BarChart from "./Pages/BarChart/BarChart";
 import PieChart from "./Pages/PieChart/PieChart";
-import LineChart from "./Pages/LineChart/LineChart";
+import LineChart from "./Pages/LineChart/lineChart/LineChart";
 import Geography from "./Pages/Geography/Geography";
 import NotFound from "./Pages/notFound/NotFound";
 
@@ -50,6 +50,7 @@ function App() {
         <Routes>
         <Route path="/" element={<HomePage />}>
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/" element={<Dashboard />} />
       <Route path="/team" element={<Team />} />
       <Route path="/contacts" element={<Contacts />} />
       <Route path="/invoices" element={<Invoices />} />
