@@ -22998,7 +22998,7 @@ export const geo =    {
     {
       "type": "Feature",
       "properties": {
-        "name": "Israel"
+        "name": "palestine"
       },
       "geometry": {
         "type": "Polygon",
